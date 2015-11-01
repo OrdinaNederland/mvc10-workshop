@@ -22,22 +22,15 @@
         <dependency>
             <groupId>javax.mvc</groupId>
             <artifactId>javax.mvc-api</artifactId>
-            <version>1.0-20150901.140329-188</version>
+            <version>1.0-edr2</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.ozark</groupId>
             <artifactId>ozark</artifactId>
-            <version>1.0.0-m02-SNAPSHOT</version>
+            <version>1.0.0-m02</version>
         </dependency>
     </dependencies>
     <build>
         <finalName>jugsite</finalName>
     </build>
-    <repositories>
-        <repository>
-            <id>jvnet-nexus-snapshots</id>
-            <name>Java.net Snapshots Repositories</name>
-            <url>https://maven.java.net/content/repositories/snapshots/</url>
-        </repository>
-    </repositories>
 </project>
