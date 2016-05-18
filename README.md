@@ -12,21 +12,34 @@ Requirements:
 
 ### Step by step
 
-Create new maven project without archetype Change packaging in the generated pom to <packaging>war</packaging>
+Create new maven project without archetype Change packaging in the generated pom to `<packaging>war</packaging>`
 
 1) Add this properties:
 
-```xml
-<properties> <failOnMissingWebXml>false</failOnMissingWebXml> <maven.compiler.source>1.8</maven.compiler.source> <maven.compiler.target>1.8</maven.compiler.target>
+```
+<properties>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
-Add this dependancies :
-<dependencies> <dependency>
-<groupId>javax</groupId> <artifactId>javaee­api</artifactId> <version>7.0</version> <scope>provided</scope>
-</dependency> <dependency>
-<groupId>javax.mvc</groupId> <artifactId>javax.mvc­api</artifactId> <version>1.0­edr2</version>
-</dependency> <dependency>
-<groupId>org.glassfish.ozark</groupId> <artifactId>ozark</artifactId> <version>1.0.0­m02</version>
-</dependency>
+        
+<dependencies>
+    <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee­api</artifactId>
+        <version>7.0</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax.mvc</groupId>
+        <artifactId>javax.mvc­api</artifactId>
+        <version>1.0­edr2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.ozark</groupId>
+        <artifactId>ozark</artifactId>
+        <version>1.0.0­m02</version>
+    </dependency>
 </dependencies>
 ```
 
@@ -35,19 +48,39 @@ Add this dependancies :
 ```xml
 <?xml version="1.0" encoding="UTF­8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema­instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven­4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-<groupId>org.gochev</groupId> <artifactId>test­mvc</artifactId> <version>1.0­SNAPSHOT</version> <packaging>war</packaging> <properties>
-<failOnMissingWebXml>false</failOnMissingWebXml> <maven.compiler.source>1.8</maven.compiler.source> <maven.compiler.target>1.8</maven.compiler.target>
-</properties> <dependencies>
-<dependency> <groupId>javax</groupId> <artifactId>javaee­api</artifactId> <version>7.0</version> <scope>provided</scope>
-</dependency> <dependency>
-<groupId>javax.mvc</groupId> <artifactId>javax.mvc­api</artifactId> <version>1.0­edr2</version>
-</dependency> <dependency>
-<groupId>org.glassfish.ozark</groupId> <artifactId>ozark</artifactId> <version>1.0.0­m02</version>
-</dependency> </dependencies> <build>
-<finalName>test­mvc</finalName> </build>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema­instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven­4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gochev</groupId>
+    <artifactId>test­mvc</artifactId>
+    <version>1.0­SNAPSHOT</version>
+    <packaging>war</packaging>
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee­api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.mvc</groupId>
+            <artifactId>javax.mvc­api</artifactId>
+            <version>1.0­edr2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.ozark</groupId>
+            <artifactId>ozark</artifactId>
+            <version>1.0.0­m02</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>test­mvc</finalName>
+    </build>
 </project>
 ```
 
@@ -55,23 +88,36 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 ```java
 @ApplicationPath("/app")
-public class MyApplication extends Application { }
-FULL source:
+public class MyApplication extends Application {
+}
+```
+
+Full source:
+
+```java
 package org.gochev;
-import javax.ws.rs.ApplicationPath; import javax.ws.rs.core.Application;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+
 @ApplicationPath("/app")
-public class MyApplication extends Application { }
+public class MyApplication extends Application {
+}
 ```
 
 Create a jsp to see that the project is runnable and etc that the JSP can be shown
 hello.jsp
 
 ```html
-<%@page contentType="text/html" pageEncoding="UTF­8"%> <!DOCTYPE html> <html>
+<%@page contentType="text/html" pageEncoding="UTF­8"%> <!DOCTYPE html>
+<html>
 <head>
-<meta http­equiv="Content­Type" content="text/html; charset=UTF­8">
-<title>Current Time</title> </head> <body>
-I am a jsp </body> </html>
+    <meta http­equiv="Content­Type" content="text/html; charset=UTF­8">
+    <title>Current Time</title></head>
+<body>
+I am a jsp
+</body>
+</html>
 ```
 
 this should be placed in `main/webapp/`
@@ -87,9 +133,10 @@ Currently we do not have any link between the controller and the jsp just want t
 @Controller
 @Path("hello")
 public class HelloController {
-@GET
-public String hello(){
-return "/hello.jsp"; }
+    @GET
+    public String hello() {
+        return "/hello.jsp";
+    }
 }
 ```
 
@@ -100,7 +147,10 @@ ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe 
 ```xml
 <?xml version="1.0" encoding="UTF­8"?>
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema­instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/" bean­discovery­mode="all"> </beans>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema­instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/"
+       bean­discovery­mode="all">
+</beans>
 ```
 
 This beans.xml file should be in `webapp/WEB­INF/beans.xml`
@@ -108,34 +158,39 @@ Add `@Inject` Models models and populate it with something as shown bellow:
 
 ```java
 package org.gochev;
+
 import javax.inject.Inject;
 import javax.mvc.Models;
-import javax.mvc.annotation.Controller; import javax.ws.rs.GET;
+import javax.mvc.annotation.Controller;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-/**
-* Created by gochev on 10/6/15. */
+
 @Controller
 @Path("hello")
 public class HelloController {
-@Inject
-private Models models;
-@GET
-public String hello(){
-models.put("msg","Hello World");
-return "/hello.jsp"; }
+    @Inject
+    private Models models;
+
+    @GET
+    public String hello() {
+        models.put("msg", "Hello World");
+        return "/hello.jsp";
+    }
 }
 ```
 
 Update the jsp file.
 
 ```html
-<%@page contentType="text/html" pageEncoding="UTF­8"%> <!DOCTYPE html> <html>
- 
+<%@page contentType="text/html" pageEncoding="UTF­8"%> <!DOCTYPE html>
+<html>
+
 <head>
-<meta http­equiv="Content­Type" content="text/html; charset=UTF­8"> <title>Current Time</title> </head>
+    <meta http­equiv="Content­Type" content="text/html; charset=UTF­8">
+    <title>Current Time</title></head>
 <body>
 I am a jsp and the message for the day is ${msg}
-</body> 
+</body>
 </html>
 ```
 
@@ -176,7 +231,10 @@ Hints:
 Walkthrough:
 
 1) Add the session controller class, presumably in the bg.jug.website.sessions package: 
-`public class SessionController {}`
+
+```java
+public class SessionController {}
+```
 
 2) Turn it into a controller by adding the annotations:
 
@@ -186,7 +244,7 @@ Walkthrough:
 ```java
 @Controller
 @Path("/session")
-public class SessionController {
+public class SessionController {}
 ```
 
 3) Implement getting all sessions:
@@ -194,8 +252,7 @@ public class SessionController {
 
 ```java
 @GET
-public String showAllSessions() {
-}
+public String showAllSessions() {}
 ```
 
 3.2) Make the method return session.jsp:
@@ -203,19 +260,21 @@ public String showAllSessions() {
 ```java
 @GET
 public String showAllSessions() {
-return "sessions.jsp";
+    return "sessions.jsp";
 }
 ```
 
 3.3) Find all the sessions from the SessionManager. Make sure you inject the SessionManager:
 
 ```java
-@Inject
+@Inject 
 private SessionManager sessionManager;
-@GET
-public String showAllSessions() {
-List<JugSession> allSessions = sessionManager.getAllSessions();
-return "sessions.jsp"; }
+
+@GET 
+public String showAllSessions(){
+    List<JugSession>allSessions=sessionManager.getAllSessions();
+    return"sessions.jsp";
+}
 ```
 
 3.4) As the sessions.jsp refers to the allSessions list as submissions, add them to the Models object to that key. Make sure you inject the Models object:
@@ -223,11 +282,13 @@ return "sessions.jsp"; }
 ```java
 @Inject
 private Models models;
+
 @GET
 public String showAllSessions() {
-List<JugSession> allSessions = sessionManager.getAllSessions();
-models.put("submissions", allSessions);
-return "sessions.jsp"; }
+    List<JugSession> allSessions = sessionManager.getAllSessions();
+    models.put("submissions", allSessions);
+    return "sessions.jsp"; 
+}
 ```
 
 4) Follow the same steps for the logged­in user's sessions:
@@ -236,7 +297,8 @@ return "sessions.jsp"; }
 ```java
 @GET
 @Path("/currentUser")
-public String showAllSessionsForCurrentUser() { return "sessions.jsp";
+public String showAllSessionsForCurrentUser() { 
+    return "sessions.jsp";
 }
 ```
 
@@ -246,11 +308,13 @@ public String showAllSessionsForCurrentUser() { return "sessions.jsp";
 @Inject
 @LoggedIn
 private User currentUser;
+
 @GET
 @Path("/currentUser")
 public String showAllSessionsForCurrentUser() {
-List<JugSession> sessionsForUser = sessionManager.getSessionsForUser(currentUser);
-return "sessions.jsp"; }
+    List<JugSession> sessionsForUser = sessionManager.getSessionsForUser(currentUser);
+    return "sessions.jsp"; 
+}
 ```
 
 
@@ -260,8 +324,9 @@ return "sessions.jsp"; }
 @GET
 @Path("/currentUser")
 public String showAllSessionsForCurrentUser() {
-List<JugSession> sessionsForUser = sessionManager.getSessionsForUser(currentUser); models.put("submissions", sessionsForUser);
-return "sessions.jsp";
+    List<JugSession> sessionsForUser = sessionManager.getSessionsForUser(currentUser); 
+    models.put("submissions", sessionsForUser);
+    return "sessions.jsp";
 }
 ```
 
@@ -291,7 +356,8 @@ public class LoginController { }
 ```java
 @GET
 public String showLoginForm() {
-return "login.jsp"; }
+    return "login.jsp"; 
+}
 ```
 
 3) The form in the JSP sends POST request on this same URI, so add the needed method:
@@ -315,10 +381,11 @@ public String login(@FormParam("userName") String userName,
 ```java
 @Inject
 private UserManager userManager;
+
 @POST
-public String login(@FormParam("userName") String userName,
-@FormParam("password") String password) {
-User foundUser = userManager.getUser(userName, password);
+public String login(@FormParam("userName") String userName, 
+                    @FormParam("password") String password) {
+    User foundUser = userManager.getUser(userName, password);
 }
 ```
 
@@ -326,9 +393,13 @@ User foundUser = userManager.getUser(userName, password);
 
 ```java
 @POST
-public String login(@FormParam("userName") String userName, @FormParam("password") String password) {
-User foundUser = userManager.getUser(userName, password); if (foundUser == null) {
-return "redirect:/login"; }
+public String login(@FormParam("userName") String userName, 
+                    @FormParam("password") String password) {
+                    
+    User foundUser = userManager.getUser(userName, password); 
+    if (foundUser == null) {
+        return "redirect:/login"; 
+    }
 }
 ```
 
@@ -337,13 +408,17 @@ return "redirect:/login"; }
 ```java
 @Inject
 private UserContext userContext;
+
 @POST
 public String login(@FormParam("userName") String userName,
-@FormParam("password") String password) {
-User foundUser = userManager.getUser(userName, password); if (foundUser == null) {
-return "redirect:/login"; } else {
-userContext.setCurrentUser(foundUser);
-return "redirect:/"; }
+                    @FormParam("password") String password) {
+    User foundUser = userManager.getUser(userName, password); 
+    if (foundUser == null) {
+        return "redirect:/login"; 
+    } else {
+        userContext.setCurrentUser(foundUser);
+        return "redirect:/"; 
+    }
 }
 ```
 
@@ -372,7 +447,8 @@ public class SubmissionController { }
 ```java
 @GET
 public String showNewSubmissionForm() {
-return "newSession.jsp"; }
+    return "newSession.jsp"; 
+}
 ```
 
 1.3) Add a method that creates a new session proposal in the database upon POST. Let's use here returning an HTTP response instead of simple string:
@@ -395,9 +471,10 @@ public Response submitSessionProposal(@BeanParam JugSubmission submission) { }
 @LoggedIn
 @Inject
 private User currentUser;
+
 @POST
 public Response submitSessionProposal(@BeanParam JugSubmission submission) {
-JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
+    JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
 }
 ```
 
@@ -407,11 +484,13 @@ JugSession newSession = new JugSession(submission.getTitle(), submission.getDesc
 ```java
 @Inject
 private SessionManager sessionManager;
+
 @POST
 public Response submitSessionProposal(@BeanParam JugSubmission submission) {
-JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
-sessionManager.submitSession(newSession);
-return Response.seeOther(URI.create("session")).build();
+    JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
+    sessionManager.submitSession(newSession);
+    return Response.seeOther(URI.create("session")).build();
+}
 ```
 
 2) Let's now add BeanValidation to the game: 2.1) Make sure that the parameter is validated:
@@ -419,15 +498,21 @@ return Response.seeOther(URI.create("session")).build();
 ```java
 @POST
 @ValidateOnExecution(type = ExecutableType.NONE)
-public Response submitSessionProposal(@Valid @BeanParam JugSubmission submission) {
+public Response submitSessionProposal(@Valid @BeanParam JugSubmission submission) {}
+```
+
 2.2) Inject the BinderResult class and use that to check whether the posted object adheres to the bean validation configurations:
+
+```java
 @Inject
 private BindingResult br;
+
 @POST
 @ValidateOnExecution(type = ExecutableType.NONE)
 public Response submitSessionProposal(@Valid @BeanParam JugSubmission submission) {
-if (br.isFailed()) {
-}
+    if (br.isFailed()) {
+    
+    }
 }
 ```
 
@@ -435,21 +520,27 @@ if (br.isFailed()) {
 
 ```java
 if (br.isFailed()) {
-String errorMessage = br.getAllViolations().stream()
-.map(ConstraintViolation::getMessage)
-.collect(Collectors.joining("<br>")); }
+    String errorMessage = br.getAllViolations().stream()
+                            .map(ConstraintViolation::getMessage)
+                            .collect(Collectors.joining("<br>")); 
+}
 ```
 
 2.4) Create an @Model bean that will hold the error message and at the same time be visible in the JSP file:
 
 ```java
+
 @Model
 public class MessagesBean {
-private String message;
-public String getMessage() {
-return message; }
-public void setMessage(String message) {
-this.message = message; }
+    private String message;
+    
+    public String getMessage() {
+        return message; 
+    }
+
+    public void setMessage(String message) {
+        this.message = message; 
+    }
 }
 ```
 
@@ -458,19 +549,21 @@ this.message = message; }
 ```java
 @Inject
 private MessagesBean messagesBean;
-}
+
 @POST
 @ValidateOnExecution(type = ExecutableType.NONE)
 public Response submitSessionProposal(@Valid @BeanParam JugSubmission submission) {
-if (br.isFailed()) {
-String errorMessage = br.getAllViolations().stream()
-.map(ConstraintViolation::getMessage)
-.collect(Collectors.joining("<br>"));
-messagesBean.setMessage(errorMessage);
-return Response.status(Response.Status.BAD_REQUEST)
-.entity("newSession.jsp").build();
+    if (br.isFailed()) {
+        String errorMessage = br.getAllViolations().stream()
+                                .map(ConstraintViolation::getMessage)
+                                .collect(Collectors.joining("<br>"));
+                                
+        messagesBean.setMessage(errorMessage);
+        return Response.status(Response.Status.BAD_REQUEST)
+                                       .entity("newSession.jsp").build();
+    }
+    JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
+    sessionManager.submitSession(newSession);
+    return Response.seeOther(URI.create("session")).build(); 
 }
-JugSession newSession = new JugSession(submission.getTitle(), submission.getDescription(), currentUser);
-sessionManager.submitSession(newSession);
-return Response.seeOther(URI.create("session")).build(); }
 ```
