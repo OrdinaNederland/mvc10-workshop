@@ -133,6 +133,7 @@ To see that the project is runnable and that the JSP can be shown start glashfis
 On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
 Also make sure the appropriate OSGI modules have been selected:
 <img src="IntelliJ.png" width="25%" hight="25%">
+
 On NetBeans : simply RUN the project and select the GlassFish instance as the application server.
 
 
@@ -151,8 +152,8 @@ public class HelloController {
 }
 ```
 
-RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.
-Now we will use models and CDI.
+RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.  
+Now we will use models and CDI.  
 ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
 
 ```xml
@@ -208,7 +209,7 @@ Update the jsp file.
 </html>
 ```
 
-Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)
+Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)  
 P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of waiting... Restart your machine :)
 
 # Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
