@@ -242,7 +242,7 @@ Make sure you have started the database. If you prefer not to change anything in
 
 ## Walkthrough:
 
-1) Add the session controller class, presumably in the bg.jug.website.sessions package:
+1) Add the `SessionController` class in the `bg.jug.website.sessions` package:
 `public class SessionController {}`
 
 2) Turn it into a controller by adding the annotations:
