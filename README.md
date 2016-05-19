@@ -1,19 +1,25 @@
 # MCV 1.0 Handson Lab
 
 
-## Part 1 - Make a Hello World application using MVC 1.0 and GlassFish (estimated 20mins ).
+# Part 1
+## Make a Hello World application using MVC 1.0 and Glassfish
 
-Requirements:
+(estimated 20mins )
+
+### Requirements:
+
 * Laptop with Java 8 installed
-* [Glassfish Nightly downloads](http://download.oracle.com/glassfish/4.1/nightly/index.html e.g. http://download.oracle.com/glassfish/4.1/nightly/glassfish-4.1-b17-09_16_2015.zip)
-* Eclipse or IntelliJ Idea or even NetBeans with configured GlassFish in it.
+* [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html)
+    * [zip](http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
+    * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal will install 4.1.1 which is good enough.
+* Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
 
 
 ### Step by step
 
-Create new maven project without archetype.  
-Use `org.gochev` for groupId and  `test-mvc` for artifactId.  
+Create new maven project without archetype.
+Use `org.gochev` for groupId and  `test-mvc` for artifactId.
 Change packaging in the generated pom to `<packaging>war</packaging>`
 
 1) Add this properties:
@@ -77,7 +83,7 @@ Add this dependencies :
             <version>1.0-edr2</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.ozark</groupId>
+            <groupId>org.Glassfish.ozark</groupId>
             <artifactId>ozark</artifactId>
             <version>1.0.0-m02</version>
         </dependency>
@@ -88,13 +94,12 @@ Add this dependencies :
 </project>
 ```
 
-3) `mvn clean package` and MAVEN REIMPORT to update the eclipse/idea project libraries   
+3) `mvn clean package` and MAVEN REIMPORT to update the eclipse/idea project libraries
 4) Create New class `MyApplication.java`
 
 ```java
 @ApplicationPath("/app")
-public class MyApplication extends Application {
-}
+public class MyApplication extends Application {}
 ```
 
 Full source:
@@ -125,10 +130,13 @@ I am a jsp
 ```
 To see that the project is runnable and that the JSP can be shown start glashfish and deploy the test-mvc application, and open [http://localhost:8080/test-mvc/hello.jsp](http://localhost:8080/test-mvc/hello.jsp)
 
-On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)  
+On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
+Also make sure the appropriate OSGI modules have been selected:
+<img src="IntelliJ.png" width="25%" hight="25%">
 On NetBeans : simply RUN the project and select the GlassFish instance.
 
-Currently we do not have any link between the controller and the jsp. We just want to see that JSP compiler and the deployment works.
+
+Currently we do not have any link between the controller and the jsp just want to see that JSP compiler works and the deployment works.
 
 5) Create a controller `HelloController.java`
 
@@ -143,8 +151,8 @@ public class HelloController {
 }
 ```
 
-RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going threw the controller.  
-Now we will use models and CDI.  
+RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going threw the controller.
+Now we will use models and CDI.
 ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
 
 ```xml
@@ -157,7 +165,7 @@ ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe 
 ```
 Do not change the 'bean-discovery-mode' into the recommended 'annotated'.
 
-This beans.xml file should be in `webapp/WEB-INF/beans.xml`  
+This beans.xml file should be in `webapp/WEB-INF/beans.xml`
 Add `@Inject` Models models and populate it with something as shown bellow:
 
 ```java
@@ -199,8 +207,8 @@ Update the jsp file.
 </html>
 ```
 
-RUN and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)  
-P.S. Sometimes (randomly) the glassfish doesn’t wont to start even after 1min of waiting... Restart your machine :)
+Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)
+P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of waiting... Restart your machine :)
 
 # Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
@@ -434,7 +442,7 @@ public String login(@FormParam("userName") String userName,
 
 ## Walkthrough:
 
-1) First let's implement submitting a new submission:  
+1) First let's implement submitting a new submission:
 1.1) Add a new controller for that: bg.jug.website.sessions.SubmissionController:
 
 ```java
