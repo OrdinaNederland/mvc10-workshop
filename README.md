@@ -1,12 +1,12 @@
 # MCV 1.0 Handson Lab
 
 
-## Part 1 - Make a Hello World application using MVC 1.0 and GlassFish (estimated 20mins ).
+## Part 1 - Make a Hello World application using MVC 1.0 and Glassfish (estimated 20mins ).
 
 Requirements:
 * Laptop with Java 8 installed
-* [Glassfish Nightly downloads](http://download.oracle.com/glassfish/4.1/nightly/index.html e.g. http://download.oracle.com/glassfish/4.1/nightly/glassfish-4.1-b17-09_16_2015.zip)
-* Eclipse or IntelliJ Idea or even NetBeans with configured GlassFish in it.
+* [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html e.g. http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
+* Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
 
 
@@ -36,7 +36,7 @@ Create new maven project without archetype Change packaging in the generated pom
         <version>1.0-edr2</version>
     </dependency>
     <dependency>
-        <groupId>org.glassfish.ozark</groupId>
+        <groupId>org.Glassfish.ozark</groupId>
         <artifactId>ozark</artifactId>
         <version>1.0.0-m02</version>
     </dependency>
@@ -74,7 +74,7 @@ Create new maven project without archetype Change packaging in the generated pom
             <version>1.0-edr2</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.ozark</groupId>
+            <groupId>org.Glassfish.ozark</groupId>
             <artifactId>ozark</artifactId>
             <version>1.0.0-m02</version>
         </dependency>
@@ -124,8 +124,11 @@ I am a jsp
 
 this should be placed in `main/webapp/`
 
-On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
-Then run
+On IDEA : when you add Glassfish go RUN Glassfish click on the + Glassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
+Also make sure the appropriate OSGI modules have been selected:
+<img src="IntelliJ.png" width="25%" hight="25%">
+
+Then `run`  
 And Open [http://localhost:8080/test-mvc/hello.jsp](http://localhost:8080/test-mvc/hello.jsp)
 Currently we do not have any link between the controller and the jsp just want to see that JSP compiler works and the deployment works.
 
@@ -197,7 +200,7 @@ I am a jsp and the message for the day is ${msg}
 ```
 
 Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)
-P.S. Sometimes (randomly) the glassfish doesn’t wont to start even after 1min of waiting... Restart your machine :)
+P.S. Sometimes (randomly) the Glassfish doesn’t wont to start even after 1min of waiting... Restart your machine :)
 Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
 Requirements:
@@ -222,7 +225,7 @@ private User currentUser
 * TestDataInserter inserts some test data from past JUG sessions. The initially logged in user is nayden
 
 Note:
-Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<glassfish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system
+Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<Glassfish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system
 Task 1: Display all the sessions as well as the session by the currently logged in user
 
 Hints:
