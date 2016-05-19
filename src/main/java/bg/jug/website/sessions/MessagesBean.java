@@ -11,10 +11,10 @@ public class MessagesBean {
     private String message;
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

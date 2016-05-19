@@ -18,18 +18,18 @@ public class JugSubmission {
     private String description;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 }

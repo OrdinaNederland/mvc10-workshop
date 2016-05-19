@@ -28,13 +28,12 @@ public class LoginController {
     }
 
     @POST
-    public String login(@FormParam("userName") String userName,
-                        @FormParam("password") String password) {
-        User foundUser = userManager.getUser(userName, password);
+    public String login(@FormParam("userName") final String userName, @FormParam("password") final String password) {
+        final User foundUser = this.userManager.getUser(userName, password);
         if (foundUser == null) {
             return "redirect:/login";
         } else {
-            userContext.setCurrentUser(foundUser);
+            this.userContext.setCurrentUser(foundUser);
             return "redirect:/";
         }
     }

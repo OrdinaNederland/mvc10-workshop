@@ -1,6 +1,15 @@
 package bg.jug.website.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Version;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
@@ -35,7 +44,7 @@ public class JugSession implements Serializable {
     public JugSession() {
     }
 
-    public JugSession(String title, String description, User byUser) {
+    public JugSession(final String title, final String description, final User byUser) {
         this.title = title;
         this.description = description;
         this.byUser = byUser;
@@ -58,18 +67,18 @@ public class JugSession implements Serializable {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -83,30 +92,26 @@ public class JugSession implements Serializable {
 
     @Override
     public String toString() {
-        return "JugSession{"
-                + "byUser=" + byUser
-                + ", description='" + description + '\''
-                + ", title='" + title + '\''
-                + '}';
+        return "JugSession{" + "byUser=" + this.byUser + ", description='" + this.description + '\'' + ", title='"
+               + this.title + '\'' + '}';
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if ((o == null) || (getClass() != o.getClass())) {
             return false;
         }
-        JugSession that = (JugSession) o;
-        return Objects.equals(title, that.title)
-                && Objects.equals(description, that.description)
-                && Objects.equals(byUser, that.byUser);
+        final JugSession that = (JugSession) o;
+        return Objects.equals(this.title, that.title) && Objects.equals(this.description, that.description)
+               && Objects.equals(this.byUser, that.byUser);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, description, byUser);
+        return Objects.hash(this.title, this.description, this.byUser);
     }
 
 }

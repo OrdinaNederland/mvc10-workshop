@@ -28,14 +28,14 @@ public class SessionController {
 
     @GET
     public String showAllSessions() {
-        models.put("submissions", sessionManager.getAllSessions());
+        this.models.put("submissions", this.sessionManager.getAllSessions());
         return "sessions.jsp";
     }
 
     @GET
     @Path("/currentUser")
     public String showAllSessionsForCurrentUser() {
-        models.put("submissions", sessionManager.getSessionsForUser(currentUser));
+        this.models.put("submissions", this.sessionManager.getSessionsForUser(this.currentUser));
         return "sessions.jsp";
     }
 

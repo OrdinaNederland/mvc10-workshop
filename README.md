@@ -220,8 +220,8 @@ P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of
 * Import the jugsite project
 
 ## Overview of business logic:
-* entities package contains the JPA entities
-* rest package contains the JAX-RS bootstrap class
+* Entities package contains the JPA entities
+* Rest package contains the JAX-RS bootstrap class
 * If you want to do anything with sessions, inject and use SessionManager
 * If you want to get the current logged in user, create the following field:
 
@@ -320,7 +320,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-4.2) Inject the logged­in user and get its submissions:
+4.2) Inject the loggedï¿½in user and get its submissions:
 
 ```java
 @Inject

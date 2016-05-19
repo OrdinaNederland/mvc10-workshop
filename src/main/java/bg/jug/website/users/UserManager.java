@@ -19,16 +19,17 @@ public class UserManager {
     private EntityManager em;
 
     public List<User> getAllUsers() {
-        return em.createNamedQuery("getAllUsers", User.class).getResultList();
+        return this.em.createNamedQuery("getAllUsers", User.class)
+                      .getResultList();
     }
 
-    public User getUser(String userName, String password) {
-        TypedQuery<User> query = em.createNamedQuery("findUserByNameAndPassword", User.class);
+    public User getUser(final String userName, final String password) {
+        final TypedQuery<User> query = this.em.createNamedQuery("findUserByNameAndPassword", User.class);
         query.setParameter("userName", userName);
         query.setParameter("password", password);
         try {
             return query.getSingleResult();
-        } catch (NoResultException nre) {
+        } catch (final NoResultException nre) {
             return null;
         }
     }

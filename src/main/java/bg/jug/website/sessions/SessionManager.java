@@ -19,17 +19,18 @@ public class SessionManager {
     private EntityManager em;
 
     public List<JugSession> getAllSessions() {
-        return em.createNamedQuery("getAllSessions", JugSession.class).getResultList();
+        return this.em.createNamedQuery("getAllSessions", JugSession.class)
+                      .getResultList();
     }
 
-    public List<JugSession> getSessionsForUser(User user) {
-        TypedQuery<JugSession> query = em.createNamedQuery("findSessionsByUser", JugSession.class);
+    public List<JugSession> getSessionsForUser(final User user) {
+        final TypedQuery<JugSession> query = this.em.createNamedQuery("findSessionsByUser", JugSession.class);
         query.setParameter("user", user);
         return query.getResultList();
     }
 
-    public JugSession submitSession(JugSession newSession) {
-        em.persist(newSession);
+    public JugSession submitSession(final JugSession newSession) {
+        this.em.persist(newSession);
         return newSession;
     }
 }

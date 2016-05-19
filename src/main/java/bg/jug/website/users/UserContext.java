@@ -24,10 +24,10 @@ public class UserContext implements Serializable {
     @Produces
     @LoggedIn
     public User getCurrentUser() {
-        return currentUser;
+        return this.currentUser;
     }
 
-    public void setCurrentUser(User currentUser) {
+    public void setCurrentUser(final User currentUser) {
         this.currentUser = currentUser;
     }
 }

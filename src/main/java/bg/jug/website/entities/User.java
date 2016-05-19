@@ -1,13 +1,21 @@
 package bg.jug.website.entities;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.*;
-
-
-import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -45,7 +53,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String userName, String password, String firstName, String lastName) {
+    public User(final String userName, final String password, final String firstName, final String lastName) {
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
@@ -69,69 +77,67 @@ public class User implements Serializable {
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUserName(final String userName) {
         this.userName = userName;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
     public List<JugSession> getSubmissions() {
-        return submissions;
+        return this.submissions;
     }
 
-    public void setSubmissions(List<JugSession> submissions) {
+    public void setSubmissions(final List<JugSession> submissions) {
         this.submissions = submissions;
     }
 
     @Override
     public String toString() {
-        return "User{" + "userName='" + userName + '\'' + ", firstName='"
-                + firstName + '\'' + ", lastName='" + lastName + '\'' + '}';
+        return "User{" + "userName='" + this.userName + '\'' + ", firstName='" + this.firstName + '\'' + ", lastName='"
+               + this.lastName + '\'' + '}';
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if ((o == null) || (getClass() != o.getClass())) {
             return false;
         }
-        User user = (User) o;
-        return Objects.equals(userName, user.userName)
-                && Objects.equals(password, user.password)
-                && Objects.equals(firstName, user.firstName)
-                && Objects.equals(lastName, user.lastName);
+        final User user = (User) o;
+        return Objects.equals(this.userName, user.userName) && Objects.equals(this.password, user.password)
+               && Objects.equals(this.firstName, user.firstName) && Objects.equals(this.lastName, user.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userName, password, firstName, lastName);
+        return Objects.hash(this.userName, this.password, this.firstName, this.lastName);
     }
 
 }
