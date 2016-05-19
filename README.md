@@ -1,11 +1,17 @@
 # MCV 1.0 Handson Lab
 
 
-## Part 1 - Make a Hello World application using MVC 1.0 and Glassfish (estimated 20mins ).
+# Part 1 
+## Make a Hello World application using MVC 1.0 and Glassfish 
 
-Requirements:
+(estimated 20mins )
+
+### Requirements:
+
 * Laptop with Java 8 installed
-* [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html e.g. http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
+* [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html) 
+    * [zip](http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
+    * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal
 * Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
 
