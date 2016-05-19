@@ -96,8 +96,7 @@ Create new maven project without archetype Change packaging in the generated pom
 
 ```java
 @ApplicationPath("/app")
-public class MyApplication extends Application {
-}
+public class MyApplication extends Application {}
 ```
 
 Full source:
