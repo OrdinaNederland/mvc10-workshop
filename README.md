@@ -214,6 +214,8 @@ P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of
 
 # Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
+# Task 1: Project setup and overview:
+
 ## Requirements:
 * Import the jugsite project
 
@@ -238,7 +240,7 @@ Make sure you have started the database. If you prefer not to change anything in
 
 On NetBeans: simply RUN the application on GlassFish. This wil start both database and glashfish instances needed.
 
-# Task 1: Display all the sessions as well as the session by the currently logged in user
+# Task 2: Display all the sessions as well as the session by the currently logged in user
 
 ## Hints:
 * Create a controller that puts into the model the sessions and returns sessions.jsp
@@ -347,7 +349,7 @@ public String showAllSessionsForCurrentUser() {
 
 5) Now if you go to localhost:8080/jugsite/app/session, you will get all the submissions. And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) – those for the current user
 
-# Task 2: Switch user
+# Task 3: Switch user
 
 ## Hints:
 
@@ -438,7 +440,7 @@ public String login(@FormParam("userName") String userName,
 }
 ```
 
-# Task 3: Submit a proposal and validate the input
+# Task 4: Submit a proposal and validate the input
 
 ## Hints:
 
