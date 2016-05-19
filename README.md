@@ -133,7 +133,7 @@ To see that the project is runnable and that the JSP can be shown start glashfis
 On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
 Also make sure the appropriate OSGI modules have been selected:
 <img src="IntelliJ.png" width="25%" hight="25%">
-On NetBeans : simply RUN the project and select the GlassFish instance.
+On NetBeans : simply RUN the project and select the GlassFish instance as the application server.
 
 
 Currently we do not have any link between the controller and the jsp just want to see that JSP compiler works and the deployment works.
@@ -151,7 +151,7 @@ public class HelloController {
 }
 ```
 
-RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going threw the controller.
+RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.
 Now we will use models and CDI.
 ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
 
@@ -163,9 +163,10 @@ ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe 
        bean-discovery-mode="all">
 </beans>
 ```
-Do not change the 'bean-discovery-mode' into the recommended 'annotated'.
+Do not change the 'bean-discovery-mode' into the recommended 'annotated' as dis will disable correct bean discovery.
 
-This beans.xml file should be in `webapp/WEB-INF/beans.xml`
+The `beans.xml` file should be in `webapp/WEB-INF/beans.xml`
+
 Add `@Inject` Models models and populate it with something as shown bellow:
 
 ```java
@@ -232,7 +233,10 @@ private User currentUser
 * TestDataInserter inserts some test data from past JUG sessions. The initially logged in user is nayden
 
 ## Note:
-Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<glassfish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system
+Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<glassfish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system.
+
+On NetBeans: simply RUN the application on GlassFish. This wil start both database and glashfish instances needed.
+
 # Task 1: Display all the sessions as well as the session by the currently logged in user
 
 ## Hints:
@@ -257,7 +261,8 @@ public class SessionController {}
 ```
 
 3) Implement getting all sessions:
-3.1) Assuming this will be a method that listens on GET requests on the /session URI, add one such method and just annotate it with the @GET annotation:
+
+3.1) Assuming this will be a method that listens on GET requests on the /session URI, add one such method and just annotate it with the `@GET` annotation:
 
 ```java
 @GET
@@ -301,6 +306,7 @@ public String showAllSessions() {
 ```
 
 4) Follow the same steps for the logged-in user's sessions:
+
 4.1) This time you will need another GET method in the controller, that listens for requests on a sub-path and returns the sessions.jsp:
 
 ```java
@@ -311,7 +317,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-4.2) Inject the logged­in user and get its submissions:
+4.2) Inject the logged�in user and get its submissions:
 
 ```java
 @Inject
@@ -326,7 +332,6 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-
 4.3) Make sure that you add the loaded sessions to the model map:
 
 ```java
@@ -340,6 +345,7 @@ public String showAllSessionsForCurrentUser() {
 ```
 
 5) Now if you go to localhost:8080/jugsite/app/session, you will get all the submissions. And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) – those for the current user
+
 # Task 2: Switch user
 
 ## Hints:
@@ -443,6 +449,7 @@ public String login(@FormParam("userName") String userName,
 ## Walkthrough:
 
 1) First let's implement submitting a new submission:
+
 1.1) Add a new controller for that: bg.jug.website.sessions.SubmissionController:
 
 ```java
