@@ -347,7 +347,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-5) Now if you go to localhost:8080/jugsite/app/session, you will get all the submissions. And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) – those for the current user
+5) Now if you go to localhost:8080/jugsite/app/session, you will get all the submissions. And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) those for the current user
 
 # Task 3: Switch user
 
@@ -389,9 +389,7 @@ public String login() { }
 
 ```java
 @POST
-public String login(@FormParam("userName") String userName,
-}
-@FormParam("password") String password) {
+public String login(@FormParam("userName") String userName, @FormParam("password") String password) { }
 ```
 
 5) Look for the user with such user name and password in the database. Use UserManager to find the user:
