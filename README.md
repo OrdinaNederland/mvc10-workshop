@@ -17,16 +17,31 @@ Create new maven project without archetype Change packaging in the generated pom
 1) Add this properties:
 
 ```xml
-<properties> <failOnMissingWebXml>false</failOnMissingWebXml> <maven.compiler.source>1.8</maven.compiler.source> <maven.compiler.target>1.8</maven.compiler.target>
+<properties>
+  <failOnMissingWebXml>false</failOnMissingWebXml>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
+```
 Add this dependancies :
-<dependencies> <dependency>
-<groupId>javax</groupId> <artifactId>javaee­api</artifactId> <version>7.0</version> <scope>provided</scope>
-</dependency> <dependency>
-<groupId>javax.mvc</groupId> <artifactId>javax.mvc­api</artifactId> <version>1.0­edr2</version>
-</dependency> <dependency>
-<groupId>org.glassfish.ozark</groupId> <artifactId>ozark</artifactId> <version>1.0.0­m02</version>
-</dependency>
+```xml
+<dependencies>
+  <dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee­api</artifactId>
+    <version>7.0</version>
+    <scope>provided</scope>
+  </dependency>
+  <dependency>
+    <groupId>javax.mvc</groupId>
+    <artifactId>javax.mvc­api</artifactId>
+    <version>1.0­edr2</version>
+  </dependency>
+  <dependency>
+    <groupId>org.glassfish.ozark</groupId>
+    <artifactId>ozark</artifactId>
+    <version>1.0.0­m02</version>
+  </dependency>
 </dependencies>
 ```
 
@@ -130,12 +145,12 @@ Update the jsp file.
 
 ```html
 <%@page contentType="text/html" pageEncoding="UTF­8"%> <!DOCTYPE html> <html>
- 
+
 <head>
 <meta http­equiv="Content­Type" content="text/html; charset=UTF­8"> <title>Current Time</title> </head>
 <body>
 I am a jsp and the message for the day is ${msg}
-</body> 
+</body>
 </html>
 ```
 
@@ -175,7 +190,7 @@ Hints:
 
 Walkthrough:
 
-1) Add the session controller class, presumably in the bg.jug.website.sessions package: 
+1) Add the session controller class, presumably in the bg.jug.website.sessions package:
 `public class SessionController {}`
 
 2) Turn it into a controller by adding the annotations:
@@ -240,7 +255,7 @@ public String showAllSessionsForCurrentUser() { return "sessions.jsp";
 }
 ```
 
-4.2) Inject the logged­in user and get its submissions: 
+4.2) Inject the logged­in user and get its submissions:
 
 ```java
 @Inject
@@ -254,7 +269,7 @@ return "sessions.jsp"; }
 ```
 
 
-4.3) Make sure that you add the loaded sessions to the model map: 
+4.3) Make sure that you add the loaded sessions to the model map:
 
 ```java
 @GET
@@ -286,7 +301,7 @@ Walkthrough:
 public class LoginController { }
 ```
 
-2) Make sure that you show login.jsp upon receiving GET request to that URI: 
+2) Make sure that you show login.jsp upon receiving GET request to that URI:
 
 ```java
 @GET
@@ -322,7 +337,7 @@ User foundUser = userManager.getUser(userName, password);
 }
 ```
 
-6) If it is null, redirect to the login form again: 
+6) If it is null, redirect to the login form again:
 
 ```java
 @POST
@@ -332,7 +347,7 @@ return "redirect:/login"; }
 }
 ```
 
-7) Otherwise, change the current user in the user context and redirect to the home page: 
+7) Otherwise, change the current user in the user context and redirect to the home page:
 
 ```java
 @Inject
@@ -367,7 +382,7 @@ Walkthrough:
 public class SubmissionController { }
 ```
 
-1.2) Add a method that shows newSession.jsp upon GET request: 
+1.2) Add a method that shows newSession.jsp upon GET request:
 
 ```java
 @GET
@@ -382,7 +397,7 @@ return "newSession.jsp"; }
 public Response submitSessionProposal() { }
 ```
 
-1.4) Another method of passing parameters in MVC 1.0 is via so called @BeanParams: 
+1.4) Another method of passing parameters in MVC 1.0 is via so called @BeanParams:
 
 ```java
 @POST
@@ -402,7 +417,7 @@ JugSession newSession = new JugSession(submission.getTitle(), submission.getDesc
 ```
 
 
-1.6) Submit the session and build a response that redirects to the /session URI: 
+1.6) Submit the session and build a response that redirects to the /session URI:
 
 ```java
 @Inject
