@@ -11,7 +11,7 @@
 * Laptop with Java 8 installed
 * [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html) 
     * [zip](http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
-    * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal
+    * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal will install 4.1.1 which is good enough.
 * Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
 
