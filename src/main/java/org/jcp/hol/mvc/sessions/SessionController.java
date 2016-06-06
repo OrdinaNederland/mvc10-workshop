@@ -1,7 +1,7 @@
-package bg.jug.website.sessions;
+package org.jcp.hol.mvc.sessions;
 
-import bg.jug.website.entities.User;
-import bg.jug.website.users.LoggedIn;
+import org.jcp.hol.mvc.users.LoggedIn;
+import org.jcp.hol.mvc.entities.User;
 
 import javax.inject.Inject;
 import javax.mvc.Models;

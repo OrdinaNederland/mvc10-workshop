@@ -19,7 +19,7 @@
 ### Step by step
 
 Create new maven project without archetype.
-Use `org.gochev` for groupId and  `test-mvc` for artifactId.
+Use `org.jcp.hol` for groupId and  `test-mvc` for artifactId.
 Change packaging in the generated pom to `<packaging>war</packaging>`
 
 1) Add this properties:
@@ -61,9 +61,9 @@ Add this dependencies :
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.gochev</groupId>
+    <groupId>org.jcp.hol</groupId>
     <artifactId>test-mvc</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>LOCAL</version>
     <packaging>war</packaging>
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -105,7 +105,7 @@ public class MyApplication extends Application {}
 Full source:
 
 ```java
-package org.gochev;
+package org.jcp.hol;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -154,7 +154,7 @@ public class HelloController {
 
 RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.  
 Now we will use models and CDI.  
-ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
+ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -171,7 +171,7 @@ The `beans.xml` file should be in `webapp/WEB-INF/beans.xml`
 Add `@Inject` Models models and populate it with something as shown bellow:
 
 ```java
-package org.gochev;
+package org.jcp.hol;
 
 import javax.inject.Inject;
 import javax.mvc.Models;
@@ -451,7 +451,7 @@ public String login(@FormParam("userName") String userName,
 
 1) First let's implement submitting a new submission:
 
-1.1) Add a new controller for that: bg.jug.website.sessions.SubmissionController:
+1.1) Add a new controller for that: SubmissionController:
 
 ```java
 @Controller

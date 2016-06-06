@@ -1,6 +1,6 @@
-package bg.jug.website.users;
+package org.jcp.hol.mvc.users;
 
-import bg.jug.website.entities.User;
+import org.jcp.hol.mvc.entities.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

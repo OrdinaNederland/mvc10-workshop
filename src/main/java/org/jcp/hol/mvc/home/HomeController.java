@@ -1,4 +1,4 @@
-package bg.jug.website.home;
+package org.jcp.hol.mvc.home;
 
 import javax.mvc.annotation.Controller;
 import javax.ws.rs.GET;

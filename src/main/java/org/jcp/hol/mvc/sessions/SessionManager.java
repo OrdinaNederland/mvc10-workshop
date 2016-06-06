@@ -1,7 +1,7 @@
-package bg.jug.website.sessions;
+package org.jcp.hol.mvc.sessions;
 
-import bg.jug.website.entities.JugSession;
-import bg.jug.website.entities.User;
+import org.jcp.hol.mvc.entities.JugSession;
+import org.jcp.hol.mvc.entities.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

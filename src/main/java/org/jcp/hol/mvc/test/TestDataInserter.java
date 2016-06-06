@@ -1,7 +1,7 @@
-package bg.jug.website.test;
+package org.jcp.hol.mvc.test;
 
-import bg.jug.website.entities.JugSession;
-import bg.jug.website.entities.User;
+import org.jcp.hol.mvc.entities.JugSession;
+import org.jcp.hol.mvc.entities.User;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;

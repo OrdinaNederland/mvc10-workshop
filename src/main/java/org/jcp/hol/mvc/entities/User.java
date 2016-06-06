@@ -1,4 +1,4 @@
-package bg.jug.website.entities;
+package org.jcp.hol.mvc.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

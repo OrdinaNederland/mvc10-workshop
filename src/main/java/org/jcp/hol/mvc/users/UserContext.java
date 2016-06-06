@@ -1,7 +1,7 @@
-package bg.jug.website.users;
+package org.jcp.hol.mvc.users;
 
-import bg.jug.website.entities.User;
-import bg.jug.website.test.TestDataInserter;
+import org.jcp.hol.mvc.entities.User;
+import org.jcp.hol.mvc.test.TestDataInserter;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;

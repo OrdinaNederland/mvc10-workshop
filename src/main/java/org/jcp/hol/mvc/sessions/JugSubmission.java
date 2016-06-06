@@ -1,4 +1,4 @@
-package bg.jug.website.sessions;
+package org.jcp.hol.mvc.sessions;
 
 import javax.enterprise.inject.Model;
 import javax.validation.constraints.Size;
