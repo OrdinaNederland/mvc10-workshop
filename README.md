@@ -14,7 +14,7 @@
     * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal will install 4.1.1 which is good enough.
 * Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
-
+* Git
 
 ### Step by step
 
