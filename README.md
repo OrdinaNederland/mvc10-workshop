@@ -31,7 +31,9 @@ Change packaging in the generated pom to `<packaging>war</packaging>`
   <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 ```
+
 Add this dependencies :
+
 ```xml
 <dependencies>
   <dependency>
@@ -212,7 +214,8 @@ Update the jsp file.
 Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)  
 P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of waiting... Restart your machine :)
 
-# Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
+# Part 2 
+Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
 # Task 1: Project setup and overview:
 
