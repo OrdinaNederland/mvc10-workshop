@@ -164,7 +164,7 @@ ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it
        bean-discovery-mode="all">
 </beans>
 ```
-Do not change the 'bean-discovery-mode' into the recommended 'annotated' as dis will disable correct bean discovery.
+Do not change the 'bean-discovery-mode' into the recommended 'annotated' as this will disable correct bean discovery.
 
 The `beans.xml` file should be in `webapp/WEB-INF/beans.xml`
 
@@ -320,7 +320,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-4.2) Inject the logged�in user and get its submissions:
+4.2) Inject the logged'in user and get its submissions:
 
 ```java
 @Inject
