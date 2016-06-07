@@ -1,8 +1,8 @@
-package org.jcp.hol.mvc.sessions;
+package bg.jug.website.sessions;
 
-import org.jcp.hol.mvc.entities.JugSession;
-import org.jcp.hol.mvc.entities.User;
-import org.jcp.hol.mvc.users.LoggedIn;
+import bg.jug.website.entities.JugSession;
+import bg.jug.website.entities.User;
+import bg.jug.website.users.LoggedIn;
 
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;

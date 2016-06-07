@@ -1,4 +1,4 @@
-package org.jcp.hol.mvc.rest;
+package bg.jug.website.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

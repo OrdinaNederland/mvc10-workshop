@@ -1,4 +1,4 @@
-package org.jcp.hol.mvc.users;
+package bg.jug.website.users;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

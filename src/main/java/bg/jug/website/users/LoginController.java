@@ -1,6 +1,6 @@
-package org.jcp.hol.mvc.users;
+package bg.jug.website.users;
 
-import org.jcp.hol.mvc.entities.User;
+import bg.jug.website.entities.User;
 
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;

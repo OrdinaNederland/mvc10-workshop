@@ -14,12 +14,12 @@
     * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal will install 4.1.1 which is good enough.
 * Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
 * Maven
-* Git
+
 
 ### Step by step
 
 Create new maven project without archetype.
-Use `org.jcp.hol` for groupId and  `test-mvc` for artifactId.
+Use `org.gochev` for groupId and  `test-mvc` for artifactId.
 Change packaging in the generated pom to `<packaging>war</packaging>`
 
 1) Add this properties:
@@ -31,9 +31,7 @@ Change packaging in the generated pom to `<packaging>war</packaging>`
   <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 ```
-
 Add this dependencies :
-
 ```xml
 <dependencies>
   <dependency>
@@ -63,9 +61,9 @@ Add this dependencies :
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jcp.hol</groupId>
+    <groupId>org.gochev</groupId>
     <artifactId>test-mvc</artifactId>
-    <version>LOCAL</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -107,7 +105,7 @@ public class MyApplication extends Application {}
 Full source:
 
 ```java
-package org.jcp.hol;
+package org.gochev;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -156,7 +154,7 @@ public class HelloController {
 
 RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.  
 Now we will use models and CDI.  
-ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it
+ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -166,14 +164,14 @@ ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it
        bean-discovery-mode="all">
 </beans>
 ```
-Do not change the 'bean-discovery-mode' into the recommended 'annotated' as this will disable correct bean discovery.
+Do not change the 'bean-discovery-mode' into the recommended 'annotated' as dis will disable correct bean discovery.
 
 The `beans.xml` file should be in `webapp/WEB-INF/beans.xml`
 
 Add `@Inject` Models models and populate it with something as shown bellow:
 
 ```java
-package org.jcp.hol;
+package org.gochev;
 
 import javax.inject.Inject;
 import javax.mvc.Models;
@@ -214,8 +212,7 @@ Update the jsp file.
 Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)  
 P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of waiting... Restart your machine :)
 
-# Part 2 
-Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
+# Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
 # Task 1: Project setup and overview:
 
@@ -323,7 +320,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-4.2) Inject the logged'in user and get its submissions:
+4.2) Inject the logged�in user and get its submissions:
 
 ```java
 @Inject
@@ -454,7 +451,7 @@ public String login(@FormParam("userName") String userName,
 
 1) First let's implement submitting a new submission:
 
-1.1) Add a new controller for that: SubmissionController:
+1.1) Add a new controller for that: bg.jug.website.sessions.SubmissionController:
 
 ```java
 @Controller

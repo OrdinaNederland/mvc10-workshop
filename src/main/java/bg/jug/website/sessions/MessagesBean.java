@@ -1,4 +1,4 @@
-package org.jcp.hol.mvc.sessions;
+package bg.jug.website.sessions;
 
 import javax.enterprise.inject.Model;
 
