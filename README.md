@@ -96,7 +96,8 @@ Add these dependencies :
 ```
 
 3) `mvn clean package` and MAVEN REIMPORT to update the eclipse/idea project libraries
-4) Create New class `MyApplication.java` in package `org.gochev`
+
+4) Create New class `MyApplication.java`
 
 ```java
 @ApplicationPath("/app")
