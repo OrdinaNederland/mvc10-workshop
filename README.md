@@ -1,29 +1,29 @@
-# MCV 1.0 Handson Lab
+# MVC 1.0 Hands-on Lab
 
 
 # Part 1
-## Make a Hello World application using MVC 1.0 and Glassfish
+## Make a Hello World application using MVC 1.0 and GlassFish
 
 (estimated 20mins )
 
 ### Requirements:
 
 * Laptop with Java 8 installed
-* [Glassfish Nightly downloads](http://download.oracle.com/Glassfish/4.1/nightly/index.html)
-    * [zip](http://download.oracle.com/Glassfish/4.1/nightly/Glassfish-4.1-b17-09_16_2015.zip)
-    * Mac OSX with [Homebrew](http://brew.sh) `brew install glassfish` in a terminal will install 4.1.1 which is good enough.
-* Eclipse or IntelliJ Idea or even NetBeans with configured Glassfish in it.
+* [GlassFish Nightly downloads](http://download.oracle.com/GlassFish/4.1/nightly/index.html)
+    * [zip](http://download.oracle.com/GlassFish/4.1/nightly/GlassFish-4.1-b17-09_16_2015.zip)
+    * Mac OSX with [Homebrew](http://brew.sh) `brew install GlassFish` in a terminal will install 4.1.1 which is good enough.
+* Eclipse or IntelliJ Idea or even NetBeans with configured GlassFish in it.
 * Maven
 * Git
 
 
 ### Step by step
 
-Create new maven project without archetype.
+Create a new Maven project without archetype.
 Use `org.gochev` for groupId and  `test-mvc` for artifactId.
 Change packaging in the generated pom to `<packaging>war</packaging>`
 
-1) Add this properties:
+1) Add these properties:
 
 ```xml
 <properties>
@@ -32,7 +32,7 @@ Change packaging in the generated pom to `<packaging>war</packaging>`
   <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 ```
-Add this dependencies :
+Add these dependencies :
 ```xml
 <dependencies>
   <dependency>
@@ -47,7 +47,7 @@ Add this dependencies :
     <version>1.0­edr2</version>
   </dependency>
   <dependency>
-    <groupId>org.glassfish.ozark</groupId>
+    <groupId>org.Glassfish.ozark</groupId>
     <artifactId>ozark</artifactId>
     <version>1.0.0­m02</version>
   </dependency>
@@ -96,7 +96,7 @@ Add this dependencies :
 ```
 
 3) `mvn clean package` and MAVEN REIMPORT to update the eclipse/idea project libraries
-4) Create New class `MyApplication.java`
+4) Create New class `MyApplication.java` in package `org.gochev`
 
 ```java
 @ApplicationPath("/app")
@@ -116,7 +116,7 @@ public class MyApplication extends Application {
 }
 ```
 
-Create a `hello.jsp` in `main/webapp/`
+Create a `hello.jsp` in `src/main/webapp/`
 
 ```html
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <!DOCTYPE html>
@@ -129,11 +129,14 @@ I am a jsp
 </body>
 </html>
 ```
-To see that the project is runnable and that the JSP can be shown start glashfish and deploy the test-mvc application, and open [http://localhost:8080/test-mvc/hello.jsp](http://localhost:8080/test-mvc/hello.jsp)
+To see that the project is runnable and that the JSP can be shown start GlassFish and deploy the test-mvc application, and open [http://localhost:8080/test-mvc/hello.jsp](http://localhost:8080/test-mvc/hello.jsp)
 
-On IDEA : when you add glassfish go RUN glassfish click on the + gassfish local give it some name then choose the domain1 as domain. ON the warning bellow click on fix artifact (the war file)
-Also make sure the appropriate OSGI modules have been selected:
-<img src="IntelliJ.png" width="25%" hight="25%">
+On IDEA : when you add GlassFish go RUN GlassFish click on the + GlassFish local give it some name then choose the domain1 as domain. 
+On the warning bellow click on fix artifact (the war file). Also make sure the appropriate OSGI modules have been selected:
+
+
+![intellij](./IntelliJ25.png)
+
 
 On NetBeans : simply RUN the project and select the GlassFish instance as the application server.
 
@@ -155,7 +158,7 @@ public class HelloController {
 
 RUN the project and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello) you should see the JSP again but this time going through the controller.  
 Now we will use models and CDI.  
-ADD beans.xml because the CDI of MVC 1.0 beans doesn’t work without it (maybe a bug?)
+We need a beans.xml because the CDI of MVC 1.0 beans don’t work without it (maybe a bug?)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -211,7 +214,7 @@ Update the jsp file.
 ```
 
 Run and open [http://localhost:8080/test-mvc/app/hello](http://localhost:8080/test-mvc/app/hello)  
-P.S. Sometimes (randomly) the Glassfish doesn't wont to start even after 1min of waiting... Restart your machine :)
+P.S. Sometimes (randomly) the GlassFish does not start even after 1 min of waiting... Restart your machine :)
 
 # Part 2 Write a real Submission APP using Java EE with Validation, Users, Entities with JPA relations, DTOs and so on.
 
@@ -237,7 +240,7 @@ private User currentUser
 * TestDataInserter inserts some test data from past JUG sessions. The initially logged in user is nayden
 
 ## Note:
-Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<glassfish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system.
+Make sure you have started the database. If you prefer not to change anything in your persistence.xml, just go to your `<GlassFish-dir>/javadb/bin` directory and run the startNetworkServer script for you operating system.
 
 On NetBeans: simply RUN the application on GlassFish. This wil start both database and glashfish instances needed.
 
@@ -321,7 +324,7 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-4.2) Inject the logged�in user and get its submissions:
+4.2) Inject the logged-in user and get its submissions:
 
 ```java
 @Inject
@@ -348,7 +351,10 @@ public String showAllSessionsForCurrentUser() {
 }
 ```
 
-5) Now if you go to localhost:8080/jugsite/app/session, you will get all the submissions. And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) those for the current user
+5) Redeploy the application.
+
+6) Now if you go to [http://localhost:8080/jugsite/app/session](http://localhost:8080/jugsite/app/session), you will get all the submissions.
+   And if you go to [http://localhost:8080/jugsite/app/session/currentUser](http://localhost:8080/jugsite/app/session/currentUser) those for the current user.
 
 # Task 3: Switch user
 
@@ -362,7 +368,7 @@ public String showAllSessionsForCurrentUser() {
 
 ## Walkthrough:
 
-1) Add a new controller in the bg.jug.website.users package, that listens for request on the /login URI:
+1) Add a new controller in the `bg.jug.website.users` package, that listens for request on the /login URI:
 
 ```java
 @Controller
@@ -439,6 +445,12 @@ public String login(@FormParam("userName") String userName,
 }
 ```
 
+8) Redeploy the application.
+
+9) Now if you go to [http://localhost:8080/jugsite/app/login](http://localhost:8080/jugsite/app/login), you should be able to switch users.
+
+
+
 # Task 4: Submit a proposal and validate the input
 
 ## Hints:
@@ -452,7 +464,7 @@ public String login(@FormParam("userName") String userName,
 
 1) First let's implement submitting a new submission:
 
-1.1) Add a new controller for that: bg.jug.website.sessions.SubmissionController:
+1.1) Add a `SubmissionController` for that in the `bg.jug.website.sessions` package.
 
 ```java
 @Controller
@@ -496,7 +508,6 @@ public Response submitSessionProposal(@BeanParam JugSubmission submission) {
 }
 ```
 
-
 1.6) Submit the session and build a response that redirects to the /session URI:
 
 ```java
@@ -511,7 +522,9 @@ public Response submitSessionProposal(@BeanParam JugSubmission submission) {
 }
 ```
 
-2) Let's now add BeanValidation to the game: 2.1) Make sure that the parameter is validated:
+2) Let's now add BeanValidation to the game.
+
+2.1) Make sure that the parameter is validated:
 
 ```java
 @POST
@@ -585,3 +598,9 @@ public Response submitSessionProposal(@Valid @BeanParam JugSubmission submission
     return Response.seeOther(URI.create("session")).build();
 }
 ```
+
+8) Redeploy the application.
+
+9) Now if you go to [http://localhost:8080/jugsite/app/submit](http://localhost:8080/jugsite/app/submit), you should be able to submit sessions.
+
+
